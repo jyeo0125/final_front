@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {Link} from 'react-router-dom'
 import{useEffect,useState} from 'react'
 
 const AllPost = () => {
@@ -9,25 +8,24 @@ const AllPost = () => {
     const fetchAllPosts = () => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/post/all`)
         .then((response)=>{
-            // console.log(response.data.posts);
-            setAllposts(response.data.posts)
+            console.log(response);
+            setAllposts(response.data.posts);
         })
-     console.log(allposts);   
     }
+    console.log(allposts);   
     useEffect(() => {fetchAllPosts()},[])
     return(
-        <>
-        {allposts && allposts.map((post)=>{
+    <div className='allpostcon'>
+        {allposts && allposts.map((post,i)=>{
             return ( 
-                <div key ={post.id}>
+                <div className='allpostcon2'key ={post.id}>
                     <h1 >Title:{post.title}</h1>
                     <h2 >{post.content}</h2>
-
                 </div>
-                
                 )
         })}
-        </>
+    </div>
+        
     )
 }
 

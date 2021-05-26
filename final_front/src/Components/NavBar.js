@@ -9,6 +9,7 @@ const NavBar = () => {
     const logout = () => {
         localStorage.removeItem("userId")
         setUser({})
+        window.location.reload()
     }
 
     return(

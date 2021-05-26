@@ -17,3 +17,19 @@
   justify-content: center;
   align-items: center;
 }
+.allpostcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.allpostcon2{
+  border: 1px solid;
+  width: 30vw;
+  margin: 20px;
+}
+.loginContainer,.SingupContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

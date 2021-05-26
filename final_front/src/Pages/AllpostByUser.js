@@ -25,12 +25,13 @@ const AllpostByUser = ()=>{
 useEffect(()=>{fetchUserPosts()},[])
 
 
+
     return(
-    <>
+    <div className='allpostcon'>
         {userpost && userpost.map((post)=>{
             return ( 
-                <div key ={post.id}>
-                    <Link to ={`/post/${post.id}`}>Title:{post.title}</Link>
+                <div className='allpostcon2' key ={post.id}>
+                    <Link to ={`/post/single/${post.id}`}>Title:{post.title}</Link>
                     <h1>Content:{post.content}</h1>
                     <button id='delBtn'value={post.id} onClick={()=>{
                         axios.delete(`${process.env.REACT_APP_BACKEND_URL}/post/${post.id}`)
@@ -41,7 +42,7 @@ useEffect(()=>{fetchUserPosts()},[])
                 
                 )
         })}
-    </>
+    </div>
     )
 }
 

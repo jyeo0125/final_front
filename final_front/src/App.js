@@ -39,7 +39,7 @@ function App() {
     
     }
   }
-  useEffect(userFetch,[])
+  useEffect(()=>{userFetch()},[])
   return (
     <div>
       <NavBar/>
@@ -62,13 +62,17 @@ function App() {
       <Route exact path ='/post/create'>
           <CreatePost/>
       </Route>
-
-      <Route exact path ='/post/:id'>
-        <SinglePost/>
-      </Route>
+      
       <Route exact path='/post/alluser'>
         <AllpostByUser/>
       </Route>
+
+      
+      <Route exact path='/post/single/:id'>
+        <SinglePost/>
+      </Route>
+   
+      
     </div>
   );
 }
