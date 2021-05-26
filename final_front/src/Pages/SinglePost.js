@@ -5,8 +5,8 @@ import {useParams} from 'react-router-dom'
 const SinglePost = ()=>{
     let {id} = useParams()
     const [singleposts,setsinglePosts] = useState('')
-    const [editTitle,setEditTitle] = useState('')
-    const [editContent,setEditContent] =useState('')
+    const [title,setTitle] = useState('')
+    const [content,setContent] =useState('')
 
 
     const fetchPosts = ()=> {
@@ -28,16 +28,28 @@ const SinglePost = ()=>{
 // submithandler function finish
     const submitHandler = (e)=>{
         e.preventDefault()
+
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/post/${id}`,{title,content},{
+            id:id
+        }).then((response)=>{
+            console.log(response);
+        })
     }
     
     return(
-        // form change
-        <div className='editcon'>
-            <input value={editTitle} className='singleinput'onChange={(e) => setEditTitle(e.target.value)}/>
-            <input value={editContent}className='singleinput' onChange={(e) => setEditContent(e.target.value)}/>
-            <input className='btn' type='submit' value='Update'/>
+    <>    
+        <div>
+            <h3>Title:{singleposts.title}</h3>
+            <h3>Content:{singleposts.content}</h3>
         </div>
+
         
+        <form className='editcon' onSubmit={submitHandler}>
+            <input value={title} className='singleinput'onChange={(e) => setTitle(e.target.value)}/>
+            <input value={content}className='singleinput'  onChange={(e) => setContent(e.target.value)}/>
+            <input className='btn'  type='submit' value='Update'/>
+        </form>
+    </>    
     )
 }
 
