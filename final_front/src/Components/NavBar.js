@@ -13,18 +13,21 @@ const NavBar = () => {
 
     return(
         <div className="navBarContainer">
+            
             <Link className="navLink" to='/'>Home</Link>
+            <Link className='navLink' to='/post/all'>All post</Link>
 
-            {localStorage.getItem('userId') ?
+            {user ?
             <>
             <Link className='navLink' to='/post/create'>Create Post</Link>
-            <span  onClick={() => logout()}>
-                <Link className="navLink" to="/">Logout</Link>
-            </span>
+            <Link className='navLink' to='/post/alluser'>User post
+            
+            </Link>
+            <span  onClick={() => logout()}><Link className="navLink" to="/login">Logout</Link></span>
             </>
+            
             :
             <>
-            
             <Link className="navLink" to="/singup">Sing Up</Link>
             <Link className="navLink" to="/login">Login</Link> 
             </>

@@ -9,10 +9,14 @@ import Login  from './Pages/Login'
 import Home from './Pages/Home'
 import Singup from './Pages/Singup'
 import CreatePost from './Pages/CreatePost'
+import AllPost from './Pages/Allpost'
+import SinglePost from './Pages/SinglePost';
+import AllpostByUser from './Pages/AllpostByUser'
 
 
 
 function App() {
+
   const { userState } = useContext(UserContext)
   const [user, setUser] = userState
 
@@ -35,16 +39,36 @@ function App() {
     
     }
   }
-
+  useEffect(userFetch,[])
   return (
     <div>
       <NavBar/>
-      <Home/>
-      <Login/>
-      <Singup/>
-      <CreatePost/>
-     
-     
+      <Route exact path ='/'>
+        <Home/>
+      </Route>
+      <Route  exact path ='/post/all'>
+        <AllPost/>
+      </Route>
+      
+
+      <Route exact path ='/login'>
+        {user ? <Redirect to='/'/>: <Login/> }
+      </Route>
+      
+      <Route exact path ='/singup'>
+        {user ? <Redirect to='/'/>:<Singup/>}
+      </Route>
+      
+      <Route exact path ='/post/create'>
+          <CreatePost/>
+      </Route>
+
+      <Route exact path ='/post/:id'>
+        <SinglePost/>
+      </Route>
+      <Route exact path='/post/alluser'>
+        <AllpostByUser/>
+      </Route>
     </div>
   );
 }
