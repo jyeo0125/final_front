@@ -11,7 +11,7 @@ const SinglePost = (props)=>{
     const [title,setTitle] = useState('')
     const [content,setContent] =useState('')
     const[userCheck, setuserCheck] = useState(false)
-    const [post,setPost] =useState(null)
+    
 
 
     const fetchPosts = ()=> {
@@ -80,14 +80,14 @@ const SinglePost = (props)=>{
                         <Comment 
                         key ={commnet.id}
                         comment={comment}
-                        singleposts={singleposts}
+                        setsinglePosts={setsinglePosts}
                         />
                     )}
                 </div>
-                {/* <SubmitAnswer 
-                post = {post}
-                getPost= {getPost}
-                /> */}
+                <CommentSubmit 
+                singleposts = {singleposts}
+                setsinglePosts= {setsinglePosts}
+                />
         </div> 
 
     </>    

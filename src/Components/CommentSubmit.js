@@ -1,13 +1,15 @@
 import axios from "axios"
 import { useState } from "react"
+import {useParams} from 'react-router-dom'
 
 const CommentSubmit = (props) => {
     const [content, setContent] =useState('')
+    let {id} = useParams()
 
     const commentSubmitHandler = async (e) =>{
         e.preventDefault()
 
-        let response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/${props.question.id}/comment`, 
+        let response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/post/${id}/comment`, 
         {
             content: content
         },
@@ -17,7 +19,7 @@ const CommentSubmit = (props) => {
             }
         })
         console.log(response)
-        props.getPost()
+        // getPost()
         setContent('')
     }
     
