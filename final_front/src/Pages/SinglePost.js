@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
+import Comment from '../Components/Comment'
+import CommentSubmit from '../Components/CommentSubmit'
 
-const SinglePost = ()=>{
+const SinglePost = (props)=>{
     let {id} = useParams()
     const [singleposts,setsinglePosts] = useState('')
+    const [commnet,setCommnet] =useState(null)
     const [title,setTitle] = useState('')
     const [content,setContent] =useState('')
+    const[userCheck, setuserCheck] = useState(false)
+    const [post,setPost] =useState(null)
 
 
     const fetchPosts = ()=> {
@@ -14,7 +19,8 @@ const SinglePost = ()=>{
             axios.get(`${process.env.REACT_APP_BACKEND_URL}/post/single/${id}`)
             .then((response)=>{
                 setsinglePosts(response.data.post)
-                console.log(response.data);
+                setCommnet(response.data.post.comments)
+                console.log(response);
                 console.log(id);
             })
             
@@ -22,10 +28,11 @@ const SinglePost = ()=>{
         } catch (error) {
             console.log(error);
         }
+        console.log(commnet);
     }
     console.log(singleposts);
     useEffect(()=>{fetchPosts()},[])
-// submithandler function finish
+
     const submitHandler = (e)=>{
         e.preventDefault()
 
@@ -36,6 +43,21 @@ const SinglePost = ()=>{
         })
     }
     
+    const authCheck = async (id) =>{
+        let response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/usercheck`,{
+            headers:{
+                authorization: localStorage.getItem('userId')
+            }
+        })
+        console.log(response);
+        if(response.data.user === id) {
+            console.log('true')
+            setuserCheck(true)
+            return true
+        }else{ return false}
+
+    }
+
     return(
     <>    
         <div>
@@ -49,6 +71,25 @@ const SinglePost = ()=>{
             <input value={content}className='singleinput'  onChange={(e) => setContent(e.target.value)}/>
             <input className='btn'  type='submit' value='Update'/>
         </form>
+
+        <div>
+           
+                <div className="commentContainer">
+                    <h1>Comments:</h1>
+                    {commnet && commnet.map((comment, i) => 
+                        <Comment 
+                        key ={commnet.id}
+                        comment={comment}
+                        singleposts={singleposts}
+                        />
+                    )}
+                </div>
+                {/* <SubmitAnswer 
+                post = {post}
+                getPost= {getPost}
+                /> */}
+        </div> 
+
     </>    
     )
 }

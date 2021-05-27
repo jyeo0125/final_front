@@ -39,6 +39,7 @@ function App() {
     
     }
   }
+  console.log(user);
   useEffect(()=>{userFetch()},[])
   return (
     <div>
