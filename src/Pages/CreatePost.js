@@ -27,14 +27,20 @@ const CreatePost = () => {
     
     
     return(
-        <>
-        <h1> Post create !</h1>
-        <form onSubmit={submitHandler}>
-            <input type="text" placeholder="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-            <input type="text" placeholder="content" value={content} onChange={(e) => setContent(e.target.value)} />
-            <input type="submit" value="submit" />
-        </form>
-        </>
+        <div className='createcon'>
+            <div className='createcon2'>
+                <h1> Post create !</h1>
+                <form onSubmit={submitHandler}>
+                    <input type="text" placeholder="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <br></br>
+                    <input type="text" placeholder="content" value={content} onChange={(e) => setContent(e.target.value)} />
+                    <br></br>
+                    <input className='btn'type="submit" value="submit" />
+                </form>
+            </div>
+            
+
+        </div>
     )
 }
 

@@ -20,6 +20,7 @@ const AllPost = () => {
             return ( 
                 <div className='allpostcon2'key ={post.id}>
                     <h1 >Title:{post.title}</h1>
+                    <hr></hr>
                     <h2 >{post.content}</h2>
                 </div>
                 )

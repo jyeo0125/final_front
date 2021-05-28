@@ -31,9 +31,10 @@ useEffect(()=>{fetchUserPosts()},[])
         {userpost && userpost.map((post)=>{
             return ( 
                 <div className='allpostcon2' key ={post.id}>
-                    <Link to ={`/post/single/${post.id}`}>Title:{post.title}</Link>
-                    <h1>Content:{post.content}</h1>
-                    <button id='delBtn'value={post.id} onClick={()=>{
+                    <Link className ='link'to ={`/post/single/${post.id}`}>Title:{post.title}</Link>
+                    <br></br>
+                    <h2>Content:{post.content}</h2>
+                    <button className='btn'id='delBtn'value={post.id} onClick={()=>{
                         axios.delete(`${process.env.REACT_APP_BACKEND_URL}/post/${post.id}`)
                     }} >Destroy</button>
                     

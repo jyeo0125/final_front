@@ -39,7 +39,7 @@ console.log(props);
             <div>
                 <h2>{props.comment.content}</h2>
             </div>
-            {userCheck && <button onClick={() => destroyCommnet(props.comment.id)}>Delete</button>}
+            {userCheck && <button className='btn'onClick={() => destroyCommnet(props.comment.id)}>Delete</button>}
         </div>
     )
 }

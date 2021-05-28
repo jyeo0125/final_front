@@ -59,16 +59,21 @@ const SinglePost = (props)=>{
     }
 
     return(
+    <div className='singlecon'>
+
     <>    
-        <div>
+        <div className='pastcon'>
             <h3>Title:{singleposts.title}</h3>
+            
             <h3>Content:{singleposts.content}</h3>
         </div>
 
         
         <form className='editcon' onSubmit={submitHandler}>
+            <lable>Title</lable>
             <input value={title} className='singleinput'onChange={(e) => setTitle(e.target.value)}/>
-            <input value={content}className='singleinput'  onChange={(e) => setContent(e.target.value)}/>
+            <lable>Content</lable>
+            <input value={content}className='singleinput2'  onChange={(e) => setContent(e.target.value)}/>
             <input className='btn'  type='submit' value='Update'/>
         </form>
 
@@ -84,6 +89,7 @@ const SinglePost = (props)=>{
                         />
                     )}
                 </div>
+                <br></br>
                 <CommentSubmit 
                 singleposts = {singleposts}
                 setsinglePosts= {setsinglePosts}
@@ -91,6 +97,7 @@ const SinglePost = (props)=>{
         </div> 
 
     </>    
+    </div>
     )
 }
 

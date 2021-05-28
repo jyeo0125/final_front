@@ -28,7 +28,7 @@ const CommentSubmit = (props) => {
     return(
         <form className='commnetform' onSubmit={commentSubmitHandler}>
             <input type ='text' value={content} onChange={(e)=>setContent(e.target.value)} />
-            <input type='submit' value='create'/>
+            <input  className='btn'type='submit' value='create'/>
 
         </form>
     )

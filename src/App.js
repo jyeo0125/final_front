@@ -44,6 +44,7 @@ function App() {
   return (
     <div>
       <NavBar/>
+      <hr></hr>
       <Route exact path ='/'>
         <Home/>
       </Route>

@@ -5,6 +5,7 @@
     padding: 16px;
     height:2vh;
     width: 100vw;
+    font-size: 27px;
   }
   .navLink {
     color: #19181A;
@@ -27,9 +28,91 @@
   border: 1px solid;
   width: 30vw;
   margin: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 .loginContainer,.SingupContainer{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.link{
+  font-size: 30px;
+}
+.singlecon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.pastcon{
+  border: 1px solid;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+}
+.editcon,.createcon{
+  border: 1px solid;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin:20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+}
+.singleinput{
+  width: 20vw;
+}
+.singleinput2{
+  width: 20vw;
+  height: 10vh;
+}
+.commentContainer{
+  background-color: white;
+  border: 1px solid;
+  width: 30vw;
+}
+.loginContainer,.loginFormContainer,.SignupFormContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  border: 1px solid;
+  transition-duration: 0.4s;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.btn:hover{
+  background-color:gray;
+  color: white;
+  font-size: 20px;
+}
+.singlecommnetcon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.commentsubcon{
+  background-color: black;
+}
+.createcon2{
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }

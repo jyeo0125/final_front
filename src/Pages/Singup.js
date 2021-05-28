@@ -31,7 +31,7 @@ const Singup = () => {
                     <input className="singupFormInput" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <input className="singupFormInput" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <input className="singupFormInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <input className="singupFormButton" type="submit" value="submit" />
+                    <input className="btn" type="submit" value="submit" />
                 </form>
 
             </div>
